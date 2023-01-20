@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Feed
+{% endblock %}
+
+{% block secondary %}
+<form action="/profile" method="post"></form>
+    <div class="container py-5">
+        <div class="section text-left">
+            {% for row in data %}
+                <div class="card w-100  mb-3">
+
+                    <div class="card-body">
+                        <div>
+                        <h5 class="card-title mb-3">  {{ row[3] }}: {{ row[0] }}</h5>
+                        </div>
+                        <div>
+                        <p class="card-text">{{ row[1]}}</p>
+                        </div>
+                        <!--p> <a href="#" class="btn btn-primary">Button</a> </p-->
+                    </div>
+                </div>
+                {% endfor %}
+
+        </div>
+    </div>
+  {% endblock %}

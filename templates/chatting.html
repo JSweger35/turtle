@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Chat
+{% endblock %}
+
+{% block main %}
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+<h3>Conversation with {{chat_user}}</h3>
+<img class="py-5" src="/static/{{ chat_user }}_Prof.jpg" alt="Prof" width="100vw" height="auto">
+
+
+
+<form action="/chat" method="post" >
+    <form class="text-center">
+    <div class=" text-center">
+                    <input name="user" id="username" value="{{chat_user}}" readonly="readonly" type="hidden"></input>
+                        <!--{% for username in users %}
+                            <option value="{{chat_user}}"></option>
+                        {% endfor %}
+                    </select-->
+
+    </div>
+    <div class="mb-3 text center">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="chat_text" placeholder="Chat..." type="text">
+    </div>
+    <button class="btn btn-primary text center" type="submit">Chat</button>
+    </form>
+
+    {% endblock %}
+
+
+{% block secondary %}
+<form action="/chat" method="get"></form>
+    <div class="container py-5">
+        <div class="section text-left">
+            {% for row in data %}
+                <div class="card w-100  mb-3">
+
+                    <div class="card-body">
+                        <div>
+                        <h5 class="card-title mb-3">  {{ row[3] }}: {{ row[0] }}</h5>
+                        </div>
+                        <div>
+                        <p class="card-text">{{ row[1]}}</p>
+                        </div>
+                        <!--p> <a href="#" class="btn btn-primary">Button</a> </p-->
+                    </div>
+                </div>
+                {% endfor %}
+
+        </div>
+    </div>
+
+</form>
+{% endblock %}

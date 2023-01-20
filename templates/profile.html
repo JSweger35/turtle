@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block secondary %}
+<form action="/profile" method="post"></form>
+
+    <div class="container py-5">
+        <img class="py-5" src="/static/{{ username[0][0] }}_Prof.jpg" alt="Prof" width="100vw" height="auto">
+        <div class="section text-left">
+            {% for row in data %}
+                <div class="card w-100  mb-3">
+
+                    <div class="card-body">
+                        <div>
+                        <h5 class="card-title mb-3"> {{ username[0][0] }}: {{ row[0]}} </h5>
+                        </div>
+                        <div>
+                        <p class="card-text">{{ row[1]}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

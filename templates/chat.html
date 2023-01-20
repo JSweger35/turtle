@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Chat
+{% endblock %}
+
+{% block main %}
+<form action="/chat" method="post" class="py-5">
+    <form class="text-center">
+    <h1 class="text-center">Chat</h1>
+    <div class="mb-3 text-center">
+        <label for="stock">Chat With:</label>
+
+                    <select name="user" id="username">
+                        {% for username in users %}
+                            <option value="{{ username }}">{{ username }}</option>
+                        {% endfor %}
+                    </select>
+
+    </div>
+    <div class="mb-3 text center">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="chat_text" placeholder="Chat..." type="text">
+    </div>
+    <button class="btn btn-primary text center" type="submit">Chat</button>
+    </form>
+{% endblock %}
