@@ -1,5 +1,4 @@
 # Turtle
-#### Video Demo:  https://youtu.be/gR5MClh24WQ
 #### Description:
 
 ### For this project I decided to create a web app that I call "Turtle". The inspiration for this was to create a twitter like  application as twitter news seems to be all over the place at the moment.
